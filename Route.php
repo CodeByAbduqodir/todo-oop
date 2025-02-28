@@ -9,13 +9,11 @@ class Route {
 
     global $token;
     if($update){
-        (new Bot($token))->handle($update);
+        (new Bot())->handle($update);
     }
   }
 
   public static function handleWeb(): void {
-    if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] == '/web2'){
-      print_r((new Web2())->getTasks());
-    }
+    print_r((new Web2())->getTasks());
   }
 }
